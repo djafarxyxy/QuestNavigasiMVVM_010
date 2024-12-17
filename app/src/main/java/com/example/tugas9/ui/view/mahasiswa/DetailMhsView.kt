@@ -188,3 +188,46 @@ fun BodyDetailMhs(
     }
 }
 
+@Composable
+fun DetailMhsView(
+    modifier: Modifier = Modifier,
+    viewModel: DetailMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    onBack: () -> Unit = { },
+    onEditClick: (String) -> Unit = { },
+    onDeleteClick: () -> Unit = { }
+) {
+    Scaffold (
+        modifier = Modifier,
+        topBar = {
+            TopAppBar(
+                judul = "Detail Mahasiswa",
+                showBackButton = true,
+                onBack = onBack,
+            )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { onEditClick(viewModel.detailUiState.value.detailUiEvent.nim) },
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = "Edit Mahasiswa"
+                )
+            }
+        }
+    ) {
+            innerPadding ->
+        val detailUiState by viewModel.detailUiState.collectAsState()
+
+        BodyDetailMhs(
+            modifier = modifier.padding(innerPadding),
+            detailUiState = detailUiState,
+            onDeleteClick = {
+                viewModel.deleteMhs()
+                onDeleteClick()
+            }
+        )
+    }
+}
