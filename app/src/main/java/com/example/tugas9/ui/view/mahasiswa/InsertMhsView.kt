@@ -1,4 +1,4 @@
-package com.example.praktikum9.ui.view.mahasiswa
+package com.example.tugas9.ui.view.mahasiswa
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,12 +26,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.monitoringapplication.ui.costumwidget.TopAppBar
-import com.example.praktikum9.viewmodel.FormErrorState
-import com.example.praktikum9.viewmodel.MahasiswaEvent
-import com.example.praktikum9.viewmodel.MahasiswaViewModel
-import com.example.praktikum9.viewmodel.MhsUIState
 import com.example.tugas9.ui.navigation.AlamatNavigasi
-import com.example.tugas9.ui.theme.viewmodel.PenyediaViewModel
+import com.example.tugas9.viewmodel.FormErrorState
+import com.example.tugas9.viewmodel.MahasiswaEvent
+import com.example.tugas9.viewmodel.MahasiswaViewModel
+import com.example.tugas9.viewmodel.MhsUIState
+import com.example.tugas9.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)

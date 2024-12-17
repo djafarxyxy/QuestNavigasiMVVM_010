@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.praktikum9.ui.navigation.PengelolaHalaman
+import com.example.tugas9.ui.navigation.PengelolaHalaman
 import com.example.tugas9.ui.theme.Tugas9Theme
 
 class MainActivity : ComponentActivity() {
