@@ -1,7 +1,5 @@
-package com.example.praktikum9.viewmodel
+package com.example.tugas9.viewmodel
 
-import androidx.compose.material3.Snackbar
-import androidx.compose.runtime.currentComposer
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -26,12 +24,12 @@ class MahasiswaViewModel(
     private  fun validateFields() : Boolean{
         val event = uiState.mahasiswaEvent
         val errorState = FormErrorState(
-            nim = if (event.nim.isNotEmpty()) "NIM tidak boleh kosong" else null,
-            nama = if (event.nama.isNotEmpty()) "Nama tidak boleh kosong" else null,
-            jenisKelamin = if (event.jenisKelamin.isNotEmpty()) "Jenis Kelamin tidak boleh kosong" else null,
-            alamat = if (event.alamat.isNotEmpty()) "Alamat tidak boleh kosong" else null,
-            kelas = if (event.kelas.isNotEmpty()) "Kelas tidak boleh kosong" else null,
-            angkatan = if (event.angkatan.isNotEmpty()) "Angkatan tidak boleh kosong" else null
+            nim = if (event.nim.isEmpty()) "NIM tidak boleh kosong" else null,
+            nama = if (event.nama.isEmpty()) "Nama tidak boleh kosong" else null,
+            jenisKelamin = if (event.jenisKelamin.isEmpty()) "Jenis Kelamin tidak boleh kosong" else null,
+            alamat = if (event.alamat.isEmpty()) "Alamat tidak boleh kosong" else null,
+            kelas = if (event.kelas.isEmpty()) "Kelas tidak boleh kosong" else null,
+            angkatan = if (event.angkatan.isEmpty()) "Angkatan tidak boleh kosong" else null
         )
         uiState = uiState.copy(isEntryValid = errorState)
         return errorState.isValid()
@@ -62,7 +60,8 @@ class MahasiswaViewModel(
             )
         }
     }
-    fun resetSnackBarMessage(){
+    //reset pesan snackbar setelah ditampilkan
+    fun resetSnackBarMessage() {
         uiState = uiState.copy(
             snackBarMessage = null
         )
@@ -80,7 +79,7 @@ data class MahasiswaEvent(
 )
 
 //Menyimpan input form ke dalam entity
-fun MahasiswaEvent.toMahasiswaEntity(): Mahasiswa = Mahasiswa(
+fun MahasiswaEvent.toMahasiswaEntity(): Mahasiswa  = Mahasiswa(
     nim = nim,
     nama = nama,
     jenisKelamin = jenisKelamin,
